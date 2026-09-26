@@ -385,46 +385,6 @@
   margin-bottom: 32px;
 }
 
-.shell-cta {
-  align-items: center;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-button);
-  color: var(--color-on-accent);
-  display: inline-flex;
-  font-weight: 600;
-  justify-content: center;
-  min-height: 44px;
-  padding: 12px 32px;
-  text-decoration: none;
-  transition: background-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
-}
-
-.shell-cta:hover {
-  background-color: var(--color-accent-hover);
-  box-shadow: 0 5px 14px rgb(182 106 60 / 24%);
-  color: var(--color-on-accent);
-  transform: translateY(-1px);
-}
-
-.shell-cta--block {
-  display: flex;
-  width: 100%;
-}
-
-.shell-cta--center {
-  text-align: center;
-}
-
-.shell-cta--compact {
-  min-height: 36px;
-  padding: 8px 20px;
-}
-
-.shell-cta--large {
-  font-size: 16px;
-  padding: 16px 48px;
-}
-
 .section {
   max-width: 1440px;
   margin: 0 auto;
@@ -494,27 +454,6 @@
   font-size: 16px;
   margin-bottom: 24px;
   color: #6f6861;
-}
-
-.shell-cta-large {
-  align-items: center;
-  background-color: var(--color-primary-dark);
-  border-radius: var(--radius-button);
-  color: var(--color-sand);
-  display: inline-flex;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  min-height: 52px;
-  padding: 16px 48px;
-  text-decoration: none;
-  transition: background-color 200ms ease, transform 200ms ease;
-}
-
-.shell-cta-large:hover {
-  background-color: var(--color-surface);
-  color: var(--color-sand);
-  transform: translateY(-1px);
 }
 
 /* 404 Page */
@@ -792,7 +731,7 @@ video {
     padding-inline: 12px;
   }
 
-  .shell-cta-large {
+  .ui-button--large {
     width: 100%;
     max-width: 320px;
     padding-inline: 24px;
@@ -983,26 +922,25 @@ img[data-priority='true'] {
 }
 
 /* ============================================
-   Dark Theme – Component overrides
+   Theme-aware shell surfaces
    ============================================ */
 html.dark-theme .header-container { background-color: rgba(13, 11, 10, 0.96); }
 html.dark-theme {
-  --scrollbar-thumb: rgba(201, 127, 79, 0.7);
-  --scrollbar-thumb-hover: #c97f4f;
   scrollbar-color: var(--scrollbar-thumb) transparent;
 }
-html.dark-theme .feature { background-color: #2a2522; }
-html.dark-theme .feature h3,
-html.dark-theme .section h2 { color: #e7d8c5; }
-html.dark-theme .feature p,
-html.dark-theme .section-description { color: #a39c96; }
-html.dark-theme .footer { background-color: #0d0b0a; }
-html.dark-theme .services-page-wrapper,
-html.dark-theme .booking-page-wrapper { background-color: #1a1614; }
+html.dark-theme .feature,
 html.dark-theme .barber-profile-card,
 html.dark-theme .booking-card,
-html.dark-theme .offer-card-page,
-html.dark-theme .contact-form-wrap { background-color: #2a2522; }
+html.dark-theme .contact-form-wrap {
+  background-color: var(--color-surface-raised);
+}
+html.dark-theme .feature h3,
+html.dark-theme .section h2 { color: var(--color-heading); }
+html.dark-theme .feature p,
+html.dark-theme .section-description { color: var(--color-muted); }
+html.dark-theme .footer { background-color: var(--color-primary-dark); }
+html.dark-theme .services-page-wrapper,
+html.dark-theme .booking-page-wrapper { background-color: var(--color-background-dark); }
 
 /* ============================================
    Shared: Page Hero Banner

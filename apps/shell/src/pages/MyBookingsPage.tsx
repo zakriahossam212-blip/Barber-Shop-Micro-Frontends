@@ -52,7 +52,7 @@ export function MyBookingsPage(): JSX.Element {
             <p className="ui-muted bookings-empty-copy">
               {isArabic ? 'ابدأ بحجز أول موعد لك!' : 'Start by booking your first appointment!'}
             </p>
-            <Link to="/booking" className="shell-cta">
+            <Link to="/booking" className="ui-button ui-button--primary">
               {isArabic ? 'احجز الآن' : 'Book Now'}
             </Link>
           </div>
@@ -82,7 +82,7 @@ export function MyBookingsPage(): JSX.Element {
                 </div>
                 {booking.status === 'confirmed' && (
                   <div className="booking-card-actions">
-                    <Link to="/booking" className="shell-cta shell-cta--compact">
+                    <Link to="/booking" className="ui-button ui-button--primary ui-button--compact">
                       {isArabic ? 'تعديل الحجز' : 'Modify'}
                     </Link>
                   </div>
@@ -90,7 +90,7 @@ export function MyBookingsPage(): JSX.Element {
               </div>
             ))}
             <div className="bookings-new ui-text-center">
-              <Link to="/booking" className="shell-cta">
+              <Link to="/booking" className="ui-button ui-button--primary">
                 {isArabic ? '+ حجز جديد' : '+ New Booking'}
               </Link>
             </div>

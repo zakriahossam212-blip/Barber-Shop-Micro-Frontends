@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import '@design-tokens/core/css';
+import '@design-tokens/core/components.css';
 import './index.css';
 
 const root = document.getElementById('root');

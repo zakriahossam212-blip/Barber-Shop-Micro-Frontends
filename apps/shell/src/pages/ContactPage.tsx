@@ -61,19 +61,19 @@ export function ContactPage(): JSX.Element {
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
                 <h3>{isArabic ? 'أرسل لنا رسالة' : 'Send us a message'}</h3>
-                <div className="form-group">
+                <div className="ui-form-group">
                   <label>{isArabic ? 'الاسم' : 'Name'}</label>
-                  <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder={isArabic ? 'اسمك الكامل' : 'Your full name'} />
+                  <input className="ui-field" required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder={isArabic ? 'اسمك الكامل' : 'Your full name'} />
                 </div>
-                <div className="form-group">
+                <div className="ui-form-group">
                   <label>{isArabic ? 'رقم الهاتف' : 'Phone'}</label>
-                  <input required type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+20 1XX XXX XXXX" dir="ltr" />
+                  <input className="ui-field" required type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+20 1XX XXX XXXX" dir="ltr" />
                 </div>
-                <div className="form-group">
+                <div className="ui-form-group">
                   <label>{isArabic ? 'الرسالة' : 'Message'}</label>
                   <textarea className="ui-textarea" required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder={isArabic ? 'اكتب رسالتك هنا...' : 'Write your message here...'} />
                 </div>
-                <button type="submit" className="shell-cta shell-cta--block shell-cta--large">
+                <button type="submit" className="ui-button ui-button--primary ui-button--block ui-button--large">
                   {isArabic ? 'إرسال' : 'Send Message'}
                 </button>
               </form>

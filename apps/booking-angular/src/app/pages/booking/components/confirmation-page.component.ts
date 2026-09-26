@@ -10,7 +10,7 @@ import { BookingService } from '../../../services/booking.service';
 @Component({
   selector: 'app-confirmation-page',
   template: `
-    <div class="confirmation-page">
+    <div class="booking-confirmation-page">
       <div *ngIf="!isSubmitting && formState.confirmation" class="success-content">
         <div class="success-icon">✓</div>
         <h2>Booking Confirmed!</h2>
@@ -52,7 +52,7 @@ import { BookingService } from '../../../services/booking.service';
           </div>
         </div>
 
-        <div class="actions">
+        <div class="ui-actions booking-actions">
           <button (click)="newBooking()" class="ui-button ui-button--primary" type="button">
             Make Another Booking
           </button>

@@ -10,11 +10,11 @@ import { BookingService } from '../../../services/booking.service';
 @Component({
   selector: 'app-customer-details-form',
   template: `
-    <div class="customer-details">
+    <div class="booking-customer-details">
       <h2>Your Details</h2>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="form-group">
+        <div class="ui-form-group booking-form-group">
           <label for="firstName">First Name *</label>
           <input
             id="firstName"
@@ -25,13 +25,13 @@ import { BookingService } from '../../../services/booking.service';
           />
           <span
             *ngIf="form.get('firstName')?.hasError('required') && form.get('firstName')?.touched"
-            class="error-message"
+            class="ui-form-error"
           >
             First name is required
           </span>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group booking-form-group">
           <label for="lastName">Last Name *</label>
           <input
             id="lastName"
@@ -42,13 +42,13 @@ import { BookingService } from '../../../services/booking.service';
           />
           <span
             *ngIf="form.get('lastName')?.hasError('required') && form.get('lastName')?.touched"
-            class="error-message"
+            class="ui-form-error"
           >
             Last name is required
           </span>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group booking-form-group">
           <label for="phone">Phone Number *</label>
           <input
             id="phone"
@@ -59,13 +59,13 @@ import { BookingService } from '../../../services/booking.service';
           />
           <span
             *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched"
-            class="error-message"
+            class="ui-form-error"
           >
             Phone number is required
           </span>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group booking-form-group">
           <label for="email">Email *</label>
           <input
             id="email"
@@ -76,19 +76,19 @@ import { BookingService } from '../../../services/booking.service';
           />
           <span
             *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
-            class="error-message"
+            class="ui-form-error"
           >
             Email is required
           </span>
           <span
             *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
-            class="error-message"
+            class="ui-form-error"
           >
             Please enter a valid email
           </span>
         </div>
 
-        <div class="form-group">
+        <div class="ui-form-group booking-form-group">
           <label for="notes">Notes (optional)</label>
           <textarea
             id="notes"
@@ -99,7 +99,7 @@ import { BookingService } from '../../../services/booking.service';
           ></textarea>
         </div>
 
-        <div class="actions">
+        <div class="ui-actions booking-actions">
           <button
             type="button"
             (click)="previousStep()"
@@ -118,58 +118,6 @@ import { BookingService } from '../../../services/booking.service';
       </form>
     </div>
   `,
-  styles: [
-    `
-      .customer-details {
-        padding: 24px;
-        max-width: 500px;
-      }
-
-      h2 {
-        margin-bottom: 24px;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      label {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-heading);
-      }
-
-      .error-message {
-        font-size: 12px;
-        color: var(--color-accent);
-      }
-
-      .actions {
-        display: flex;
-        gap: 12px;
-        justify-content: flex-end;
-        margin-top: 24px;
-      }
-
-      @media (max-width: 640px) {
-        .customer-details {
-          max-width: 100%;
-        }
-
-        .actions {
-          flex-direction: column;
-        }
-      }
-    `,
-  ],
 })
 export class CustomerDetailsFormComponent implements OnInit {
   @Input() formState!: BookingFormState;

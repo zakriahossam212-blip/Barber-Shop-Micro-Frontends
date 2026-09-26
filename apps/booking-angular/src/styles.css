@@ -54,7 +54,7 @@ app-root {
   z-index: -1;
 }
 
-.progress-step {
+.booking-progress-step {
   flex: 1;
   text-align: center;
   position: relative;
@@ -73,12 +73,12 @@ app-root {
   margin-bottom: 8px;
 }
 
-.progress-step.active .progress-step-number {
+.booking-progress-step.active .progress-step-number {
   background-color: var(--color-accent);
   color: var(--color-white);
 }
 
-.progress-step.completed .progress-step-number {
+.booking-progress-step.completed .progress-step-number {
   background-color: var(--color-success);
   color: var(--color-white);
 }
@@ -94,113 +94,175 @@ app-root {
   background-color: var(--color-surface-raised);
   border-radius: var(--radius-card);
   padding: 32px 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-card);
   min-width: 0;
 }
 
-/* Form Groups */
-.form-group {
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-form-group {
+  margin-bottom: 0;
+}
+
+.booking-actions {
+  margin-top: 24px;
+}
+
+.booking-service-selection,
+.booking-barber-selection,
+.booking-customer-details {
+  padding: 24px;
+}
+
+.booking-service-selection h2,
+.booking-barber-selection h2,
+.booking-customer-details h2 {
   margin-bottom: 24px;
 }
 
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
+.booking-services-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.booking-service-card {
+  padding: 20px;
+}
+
+.booking-service-card h3 {
   color: var(--color-heading);
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-small);
-  font-family: inherit;
-  font-size: 14px;
-  background-color: var(--color-background);
-}
-
-.form-group input:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgb(182 106 60 / 10%);
-}
-
-.form-group.error input,
-.form-group.error select {
-  border-color: #dc2626;
-}
-
-.form-group-error {
-  color: var(--color-danger);
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-/* Grid for Multiple Columns */
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-@media (max-width: 640px) {
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Selection Grid */
-.selection-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.selection-card {
-  padding: 16px;
-  border: 2px solid var(--color-border-subtle);
-  border-radius: var(--radius-small);
-  cursor: pointer;
-  transition: all 200ms;
-  text-align: center;
-  background-color: var(--color-surface-raised);
-}
-
-.selection-card:hover {
-  border-color: var(--color-accent);
-}
-
-.selection-card.selected {
-  border-color: var(--color-accent);
-  background-color: var(--color-accent-soft);
-}
-
-.selection-card h4 {
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 4px;
 }
 
-.selection-card p {
-  font-size: 12px;
+.booking-service-card .arabic {
+  color: var(--color-muted);
+  font-family: 'Cairo', sans-serif;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.booking-service-card .description {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.booking-service-card .service-meta {
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.booking-service-card .duration {
   color: var(--color-muted);
 }
 
-/* Buttons */
-.button-group {
+.booking-service-card .price {
+  color: var(--color-accent);
+}
+
+.booking-barbers-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 32px;
+}
+
+.booking-barber-card {
+  padding: 16px;
+}
+
+.booking-barber-card .barber-header {
+  align-items: center;
   display: flex;
-  gap: 16px;
-  margin-top: 32px;
-  justify-content: center;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.booking-barber-card .barber-header > div {
+  min-width: 0;
+}
+
+.booking-barber-card .barber-avatar {
+  border-radius: var(--radius-full);
+  height: 50px;
+  object-fit: cover;
+  width: 50px;
+}
+
+.booking-barber-card .barber-info {
+  flex: 1;
+  text-align: left;
+}
+
+.booking-barber-card .barber-header h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.booking-barber-card .arabic {
+  color: var(--color-muted);
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+.booking-barber-card .rating {
+  color: var(--color-accent);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.booking-barber-card .specialty {
+  color: var(--color-muted);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.booking-time-slots {
+  margin-bottom: 32px;
+}
+
+.booking-slots-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.booking-time-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+}
+
+.booking-time-slot .date {
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.booking-time-slot .time {
+  color: var(--color-heading);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* ============================================
    Confirmation Page
    ============================================ */
-.confirmation-page {
+.booking-confirmation-page {
   text-align: center;
   padding: 60px 24px;
 }
@@ -210,7 +272,7 @@ app-root {
   margin-bottom: 24px;
 }
 
-.confirmation-page h2 {
+.booking-confirmation-page h2 {
   font-size: 32px;
   color: var(--color-success);
   margin-bottom: 16px;
@@ -281,15 +343,16 @@ app-root {
     padding: 24px 16px;
   }
 
-  .selection-grid {
+  .booking-services-grid,
+  .booking-barbers-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
-  .button-group {
+  .booking-actions {
     flex-direction: column;
   }
 
-  button {
+  .booking-form .ui-button {
     width: 100%;
   }
 }
@@ -340,33 +403,15 @@ app-root {
 }
 
 /* ============================================
-   Dark Theme Overrides
+   Dark Theme
    ============================================ */
-html.dark-theme .booking-form,
-html.dark-theme .selection-card {
+html.dark-theme .booking-form {
   background-color: var(--color-surface-raised);
   border-color: var(--color-border);
 }
-html.dark-theme .form-group label,
 html.dark-theme .booking-header h1,
 html.dark-theme .booking-summary h3 {
   color: var(--color-sand);
-}
-html.dark-theme .form-group input,
-html.dark-theme .form-group select {
-  background-color: var(--color-primary-dark);
-  color: var(--color-sand);
-  border-color: var(--color-border);
-}
-html.dark-theme .selection-card {
-  background-color: var(--color-surface-raised);
-}
-html.dark-theme .selection-card:hover {
-  border-color: var(--color-accent);
-}
-html.dark-theme .selection-card.selected {
-  background-color: var(--color-accent-soft);
-  border-color: var(--color-accent);
 }
 html.dark-theme .booking-summary {
   background-color: var(--color-surface-dark);
@@ -380,25 +425,11 @@ html.dark-theme .booking-reference {
   background-color: var(--color-primary-dark);
   color: var(--color-text);
 }
-html.dark-theme .barber-card,
-html.dark-theme .time-slot {
-  background-color: var(--color-surface-raised);
-  border-color: var(--color-border);
-}
-html.dark-theme .barber-card.selected,
-html.dark-theme .time-slot.selected {
-  background-color: var(--color-accent-soft);
-  border-color: var(--color-accent);
-}
-html.dark-theme .barber-card h3,
-html.dark-theme .time-slot .time {
-  color: var(--color-heading);
-}
-html.dark-theme .progress-step-number {
+html.dark-theme .booking-progress-step .progress-step-number {
   background-color: var(--color-border-subtle);
   color: var(--color-muted);
 }
-html.dark-theme .progress-step.active .progress-step-number {
+html.dark-theme .booking-progress-step.active .progress-step-number {
   background-color: var(--color-accent);
   color: var(--color-on-accent);
 }

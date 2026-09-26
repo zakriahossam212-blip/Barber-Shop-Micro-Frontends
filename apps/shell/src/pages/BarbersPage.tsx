@@ -87,7 +87,7 @@ export function BarbersPage(): JSX.Element {
                 <p className="barber-title">{isArabic ? barber.titleAr : barber.title}</p>
                 <p className="barber-exp">{isArabic ? `خبرة: ${barber.experienceAr}` : `Experience: ${barber.experience}`}</p>
                 <p className="barber-spec">{isArabic ? barber.specialityAr : barber.speciality}</p>
-                <Link to="/booking" className="shell-cta shell-cta--block">
+                <Link to="/booking" className="ui-button ui-button--primary ui-button--block">
                   {isArabic ? 'احجز معه' : 'Book with him'}
                 </Link>
               </div>
