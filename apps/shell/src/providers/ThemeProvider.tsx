@@ -27,6 +27,7 @@ export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
   // Apply theme to document
   useEffect(() => {
     const html = document.documentElement;
+    html.classList.toggle('dark-theme', theme === 'dark');
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);

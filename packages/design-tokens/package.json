@@ -13,7 +13,8 @@
     "./shadows": "./src/shadows.ts",
     "./breakpoints": "./src/breakpoints.ts",
     "./motion": "./src/motion.ts",
-    "./css": "./src/global.css"
+    "./css": "./src/global.css",
+    "./components.css": "./src/components.css"
   },
   "files": ["src"],
   "scripts": {

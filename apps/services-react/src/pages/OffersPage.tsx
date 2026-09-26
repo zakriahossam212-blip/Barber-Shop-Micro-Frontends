@@ -14,7 +14,7 @@ export function OffersPage(): JSX.Element {
   }
 
   return (
-    <div>
+    <div className="services-container">
       {/* Header */}
       <div className="services-header">
         <h1>Special Offers</h1>
@@ -24,12 +24,12 @@ export function OffersPage(): JSX.Element {
       {/* Offers Grid */}
       <div className="offers-section">
         {loading ? (
-          <div className="loading-state">
-            <div className="spinner" />
+          <div className="ui-loading-state">
+            <div className="ui-spinner" />
             <span>Loading offers...</span>
           </div>
         ) : offers.length === 0 ? (
-          <div className="empty-state">
+          <div className="ui-empty-state">
             <h3>No active offers</h3>
             <p>Check back soon for new promotions</p>
           </div>
@@ -55,8 +55,7 @@ export function OffersPage(): JSX.Element {
 
                 <Link
                   to={`/?code=${offer.code}`}
-                  className="offer-cta"
-                  style={{ textDecoration: 'none', display: 'block' }}
+                  className="ui-button ui-button--block offer-cta"
                 >
                   Claim Offer
                 </Link>
@@ -67,14 +66,10 @@ export function OffersPage(): JSX.Element {
       </div>
 
       {/* Back Link */}
-      <div style={{ textAlign: 'center', padding: '40px 24px' }}>
+      <div className="services-offers-back ui-text-center">
         <Link
           to="/"
-          style={{
-            color: '#b66a3c',
-            textDecoration: 'none',
-            fontWeight: '600',
-          }}
+          className="ui-link"
         >
           ← Back to Services
         </Link>

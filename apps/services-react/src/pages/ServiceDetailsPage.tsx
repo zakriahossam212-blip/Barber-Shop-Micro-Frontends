@@ -11,7 +11,7 @@ export function ServiceDetailsPage(): JSX.Element {
       <div className="service-details">
         <h2>Failed to load service</h2>
         <p>{error.message}</p>
-        <Link to="/" className="cta-button">
+        <Link to="/" className="ui-button ui-button--primary service-cta">
           Back to Services
         </Link>
       </div>
@@ -20,8 +20,8 @@ export function ServiceDetailsPage(): JSX.Element {
 
   if (loading) {
     return (
-      <div className="loading-state">
-        <div className="spinner" />
+      <div className="ui-loading-state">
+        <div className="ui-spinner" />
         <span>Loading service details...</span>
       </div>
     );
@@ -32,7 +32,7 @@ export function ServiceDetailsPage(): JSX.Element {
       <div className="service-details">
         <h2>Service not found</h2>
         <p>The service you're looking for doesn't exist.</p>
-        <Link to="/" className="cta-button">
+        <Link to="/" className="ui-button ui-button--primary service-cta">
           Back to Services
         </Link>
       </div>
@@ -44,24 +44,16 @@ export function ServiceDetailsPage(): JSX.Element {
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
-        style={{
-          marginBottom: '24px',
-          background: 'none',
-          border: 'none',
-          color: '#b66a3c',
-          cursor: 'pointer',
-          fontSize: '14px',
-          fontWeight: '600',
-        }}
+        className="ui-link service-back-link"
       >
         ← Back
       </button>
 
       {/* Details Header */}
       <div className="details-header">
-        <div className="details-image" style={{ height: '300px', overflow: 'hidden', borderRadius: '12px' }}>
+        <div className="details-image details-image--service">
           {service.image?.startsWith('/') ? (
-            <img src={service.image} alt={service.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img className="ui-media-cover" src={service.image} alt={service.name} />
           ) : (
             service.image || '💈'
           )}
@@ -86,30 +78,24 @@ export function ServiceDetailsPage(): JSX.Element {
           </div>
 
           {/* CTA */}
-          <a href={`/booking?serviceId=${service.id}`} className="details-cta">
+          <a href={`/booking?serviceId=${service.id}`} className="ui-button ui-button--primary details-cta">
             Book This Service
           </a>
         </div>
       </div>
 
       {/* Additional Info */}
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '40px auto',
-          padding: '0 24px',
-        }}
-      >
-        <h2 style={{ marginBottom: '16px' }}>About This Service</h2>
-        <p style={{ color: '#6f6861', lineHeight: '1.7' }}>
+      <div className="service-details-additional ui-page-width">
+        <h2>About This Service</h2>
+        <p className="ui-muted">
           Our {service.name} service is provided by professional and experienced barbers. We use
           premium tools and products to ensure the best results. Each appointment is personalized
           to meet your specific needs and preferences.
         </p>
 
         {/* Back to Services Link */}
-        <div style={{ marginTop: '40px' }}>
-          <Link to="/" style={{ color: '#b66a3c', textDecoration: 'none' }}>
+        <div className="service-details-back">
+          <Link to="/" className="ui-link">
             ← View all services
           </Link>
         </div>

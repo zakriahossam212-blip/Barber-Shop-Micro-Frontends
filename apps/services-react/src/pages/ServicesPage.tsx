@@ -30,7 +30,7 @@ export function ServicesPage(): JSX.Element {
   if (error) {
     return (
       <div className="services-container">
-        <div style={{ padding: '40px 24px', textAlign: 'center' }}>
+        <div className="ui-empty-state">
           <h2>Failed to load services</h2>
           <p>{error.message}</p>
         </div>
@@ -50,7 +50,8 @@ export function ServicesPage(): JSX.Element {
       <div className="services-filters">
         <div className="filter-group">
           <label htmlFor="category">Category:</label>
-          <select
+            <select
+              className="ui-field"
             id="category"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value as ServiceCategory | '')}
@@ -67,6 +68,7 @@ export function ServicesPage(): JSX.Element {
         <div className="filter-group">
           <label htmlFor="search">Search:</label>
           <input
+            className="ui-field"
             id="search"
             type="text"
             placeholder="Search services..."
@@ -78,12 +80,12 @@ export function ServicesPage(): JSX.Element {
 
       {/* Services Grid */}
       {loading ? (
-        <div className="loading-state">
-          <div className="spinner" />
+        <div className="ui-loading-state">
+          <div className="ui-spinner" />
           <span>Loading services...</span>
         </div>
       ) : filteredServices.length === 0 ? (
-        <div className="empty-state">
+        <div className="ui-empty-state">
           <h3>No services found</h3>
           <p>Try adjusting your filters or search term</p>
         </div>
@@ -91,9 +93,9 @@ export function ServicesPage(): JSX.Element {
         <div className="services-grid">
           {filteredServices.map((service) => (
             <div key={service.id} className="service-card">
-              <div className="service-image" style={{ height: '200px', overflow: 'hidden' }}>
+              <div className="service-image">
                 {service.image?.startsWith('/') ? (
-                  <img src={service.image} alt={service.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img className="ui-media-cover" src={service.image} alt={service.name} />
                 ) : (
                   service.image || '💈'
                 )}
@@ -115,7 +117,7 @@ export function ServicesPage(): JSX.Element {
                   </div>
                   <div className="service-duration">{service.duration} min</div>
                 </div>
-                <Link to={`/${service.id}`} className="cta-button">
+                <Link to={`/${service.id}`} className="ui-button ui-button--primary ui-button--block service-cta">
                   View Details
                 </Link>
               </div>

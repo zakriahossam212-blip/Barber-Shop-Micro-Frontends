@@ -16,7 +16,7 @@ export function HomePage(): JSX.Element {
               ? 'تجربة حلاقة حديثة وعصرية'
               : 'A Modern Barber Experience'}
           </p>
-          <Link to="/booking" className="cta-button">
+          <Link to="/booking" className="shell-cta">
             {isArabic ? 'احجز الآن' : 'Book Now'}
           </Link>
         </div>
@@ -40,17 +40,17 @@ export function HomePage(): JSX.Element {
         <h2>{isArabic ? 'لماذا اخترنا؟' : 'Why Choose Us?'}</h2>
         <div className="features">
           <div className="feature">
-            <img src="/Craftsmanship.jpg" alt="Experience" style={{width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px', marginBottom: '16px'}} />
+            <img className="ui-feature-image" src="/Craftsmanship.jpg" alt="Experience" />
             <h3>{isArabic ? 'خبرة' : 'Experience'}</h3>
             <p>{isArabic ? 'حلاقون محترفون بسنوات خبرة' : 'Professional barbers with years of experience'}</p>
           </div>
           <div className="feature">
-            <img src="/hot-towel.jpg" alt="Quality" style={{width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px', marginBottom: '16px'}} />
+            <img className="ui-feature-image" src="/hot-towel.jpg" alt="Quality" />
             <h3>{isArabic ? 'جودة' : 'Quality'}</h3>
             <p>{isArabic ? 'أفضل الأدوات والمنتجات' : 'Best tools and products'}</p>
           </div>
           <div className="feature">
-            <img src="/Interior.jpg" alt="Comfort" style={{width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px', marginBottom: '16px'}} />
+            <img className="ui-feature-image" src="/Interior.jpg" alt="Comfort" />
             <h3>{isArabic ? 'راحة' : 'Comfort'}</h3>
             <p>{isArabic ? 'بيئة مريحة وودية' : 'Comfortable and friendly environment'}</p>
           </div>
@@ -65,7 +65,7 @@ export function HomePage(): JSX.Element {
             ? 'احصل على أفضل خدمات الحلاقة في المدينة'
             : 'Get the best barbering services in the city'}
         </p>
-        <Link to="/booking" className="cta-button-large">
+        <Link to="/booking" className="shell-cta-large">
           {isArabic ? 'احجز الآن' : 'Book Now'}
         </Link>
       </section>

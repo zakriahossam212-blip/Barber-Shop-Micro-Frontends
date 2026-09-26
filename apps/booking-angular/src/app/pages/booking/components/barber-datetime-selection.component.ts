@@ -19,18 +19,18 @@ import { BookingService } from '../../../services/booking.service';
           *ngFor="let barber of barbers$ | async"
           (click)="selectBarber(barber)"
           [class.selected]="selectedBarber?.id === barber.id"
-          class="barber-card"
+            class="barber-card"
           type="button"
         >
           <div class="barber-header">
-            <img [src]="barber.imageUrl" [alt]="barber.name" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" />
-            <div style="flex: 1; margin-left: 12px; text-align: left;">
+            <img class="barber-avatar" [src]="barber.imageUrl" [alt]="barber.name" />
+            <div class="barber-info">
               <h3>{{ barber.name }}</h3>
-              <p class="arabic" style="margin: 0;">{{ barber.nameAr }}</p>
+              <p class="arabic">{{ barber.nameAr }}</p>
             </div>
             <span class="rating">★ {{ barber.rating }}</span>
           </div>
-          <p class="specialty" style="margin-top: 12px;">{{ barber.specialty }}</p>
+          <p class="specialty">{{ barber.specialty }}</p>
         </button>
       </div>
 
@@ -51,13 +51,13 @@ import { BookingService } from '../../../services/booking.service';
       </div>
 
       <div class="actions">
-        <button (click)="previousStep()" class="btn-secondary" type="button">
+        <button (click)="previousStep()" class="ui-button ui-button--secondary" type="button">
           Back
         </button>
         <button
           (click)="nextStep()"
           [disabled]="!selectedBarber || !selectedSlot"
-          class="btn-primary"
+          class="ui-button ui-button--primary"
           type="button"
         >
           Continue
@@ -85,20 +85,20 @@ import { BookingService } from '../../../services/booking.service';
 
       .barber-card {
         padding: 16px;
-        border: 2px solid #e8ddd4;
+        border: 2px solid var(--color-border-subtle);
         border-radius: 8px;
-        background: white;
+        background: var(--color-surface-raised);
         cursor: pointer;
         transition: all 0.3s ease;
         text-align: left;
 
         &.selected {
-          border-color: #d4645c;
-          background-color: #fef5f3;
+          border-color: var(--color-accent);
+          background-color: var(--color-accent-soft);
         }
 
         &:hover {
-          border-color: #d4645c;
+          border-color: var(--color-accent);
         }
       }
 
@@ -118,9 +118,22 @@ import { BookingService } from '../../../services/booking.service';
         min-width: 0;
       }
 
+      .barber-avatar {
+        border-radius: 50%;
+        height: 50px;
+        object-fit: cover;
+        width: 50px;
+      }
+
+      .barber-info {
+        flex: 1;
+        margin-left: 12px;
+        text-align: left;
+      }
+
       .rating {
         font-size: 14px;
-        color: #d4645c;
+        color: var(--color-accent);
         font-weight: 600;
         white-space: nowrap;
       }
@@ -128,13 +141,14 @@ import { BookingService } from '../../../services/booking.service';
       .arabic {
         font-family: 'Cairo', sans-serif;
         font-size: 14px;
-        color: #6f6861;
-        margin: 4px 0;
+        color: var(--color-muted);
+        margin: 0;
       }
 
       .specialty {
         font-size: 12px;
-        color: #8b7d76;
+        color: var(--color-muted);
+        margin-top: 12px;
       }
 
       .time-slots {
@@ -149,9 +163,9 @@ import { BookingService } from '../../../services/booking.service';
 
       .time-slot {
         padding: 12px;
-        border: 1px solid #e8ddd4;
+        border: 1px solid var(--color-border-subtle);
         border-radius: 6px;
-        background: white;
+        background: var(--color-surface-raised);
         cursor: pointer;
         transition: all 0.3s ease;
         display: flex;
@@ -159,24 +173,24 @@ import { BookingService } from '../../../services/booking.service';
         gap: 4px;
 
         &.selected {
-          border-color: #d4645c;
-          background-color: #fef5f3;
+          border-color: var(--color-accent);
+          background-color: var(--color-accent-soft);
         }
 
         &:hover:not(:disabled) {
-          border-color: #d4645c;
+          border-color: var(--color-accent);
         }
       }
 
       .date {
         font-size: 12px;
-        color: #8b7d76;
+        color: var(--color-muted);
       }
 
       .time {
         font-size: 14px;
         font-weight: 600;
-        color: #211e1b;
+        color: var(--color-heading);
       }
 
       .actions {
@@ -184,40 +198,6 @@ import { BookingService } from '../../../services/booking.service';
         gap: 12px;
         justify-content: flex-end;
         margin-top: 32px;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary {
-        background-color: #d4645c;
-        color: white;
-
-        &:hover:not(:disabled) {
-          background-color: #c15048;
-        }
-
-        &:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-      }
-
-      .btn-secondary {
-        background-color: #e8ddd4;
-        color: #211e1b;
-
-        &:hover {
-          background-color: #dcd0c8;
-        }
       }
 
       @media (max-width: 768px) {

@@ -49,16 +49,16 @@ import { BookingService } from '../../../services/booking.service';
 
       .service-card {
         padding: 20px;
-        border: 2px solid #e8ddd4;
+        border: 2px solid var(--color-border-subtle);
         border-radius: 8px;
-        background: white;
+        background: var(--color-surface-raised);
         cursor: pointer;
         transition: all 0.3s ease;
         text-align: left;
 
         &:hover {
-          border-color: #d4645c;
-          box-shadow: 0 4px 12px rgba(212, 100, 92, 0.1);
+          border-color: var(--color-accent);
+          box-shadow: 0 4px 12px rgb(154 84 45 / 14%);
         }
 
         &:active {
@@ -69,19 +69,19 @@ import { BookingService } from '../../../services/booking.service';
       h3 {
         font-size: 18px;
         margin-bottom: 4px;
-        color: #211e1b;
+        color: var(--color-heading);
       }
 
       .arabic {
         font-size: 16px;
-        color: #6f6861;
+        color: var(--color-muted);
         margin-bottom: 8px;
         font-family: 'Cairo', sans-serif;
       }
 
       .description {
         font-size: 14px;
-        color: #8b7d76;
+        color: var(--color-muted);
         margin-bottom: 16px;
         line-height: 1.4;
       }
@@ -90,17 +90,17 @@ import { BookingService } from '../../../services/booking.service';
         display: flex;
         justify-content: space-between;
         padding-top: 12px;
-        border-top: 1px solid #e8ddd4;
+        border-top: 1px solid var(--color-border-subtle);
         font-size: 14px;
         font-weight: 600;
       }
 
       .duration {
-        color: #6f6861;
+        color: var(--color-muted);
       }
 
       .price {
-        color: #d4645c;
+        color: var(--color-accent);
       }
 
       @media (max-width: 768px) {

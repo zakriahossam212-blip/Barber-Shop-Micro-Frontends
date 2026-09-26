@@ -63,7 +63,7 @@ export function BarbersPage(): JSX.Element {
   return (
     <div className="page-barbers">
       {/* Hero */}
-      <section className="page-hero" style={{ background: 'linear-gradient(135deg, #171412 0%, #29231f 100%)' }}>
+      <section className="page-hero page-hero--dark">
         <div className="page-hero-content">
           <h1>{isArabic ? 'حلاقونا' : 'Our Barbers'}</h1>
           <p>{isArabic ? 'فريق من أفضل الحلاقين المحترفين' : 'A team of the finest professional barbers'}</p>
@@ -87,7 +87,7 @@ export function BarbersPage(): JSX.Element {
                 <p className="barber-title">{isArabic ? barber.titleAr : barber.title}</p>
                 <p className="barber-exp">{isArabic ? `خبرة: ${barber.experienceAr}` : `Experience: ${barber.experience}`}</p>
                 <p className="barber-spec">{isArabic ? barber.specialityAr : barber.speciality}</p>
-                <Link to="/booking" className="cta-button" style={{ display: 'block', textAlign: 'center', marginTop: '16px' }}>
+                <Link to="/booking" className="shell-cta shell-cta--block">
                   {isArabic ? 'احجز معه' : 'Book with him'}
                 </Link>
               </div>

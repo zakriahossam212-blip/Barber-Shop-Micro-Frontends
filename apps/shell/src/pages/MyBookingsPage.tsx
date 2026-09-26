@@ -30,13 +30,6 @@ const mockBookings = [
   },
 ];
 
-const statusColors: Record<string, string> = {
-  confirmed: '#10b981',
-  pending: '#f59e0b',
-  completed: '#6b7280',
-  cancelled: '#ef4444',
-};
-
 export function MyBookingsPage(): JSX.Element {
   const { language } = useLanguage();
   const isArabic = language === 'ar';
@@ -44,7 +37,7 @@ export function MyBookingsPage(): JSX.Element {
   return (
     <div className="page-my-bookings">
       {/* Hero */}
-      <section className="page-hero" style={{ background: 'linear-gradient(135deg, #171412 0%, #29231f 100%)' }}>
+      <section className="page-hero page-hero--dark">
         <div className="page-hero-content">
           <h1>{isArabic ? 'حجوزاتي' : 'My Bookings'}</h1>
           <p>{isArabic ? 'تتبع مواعيدك ومحفوظاتك' : 'Track your appointments and history'}</p>
@@ -53,13 +46,13 @@ export function MyBookingsPage(): JSX.Element {
 
       <section className="section">
         {mockBookings.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '60px 24px' }}>
-            <p style={{ fontSize: 64, marginBottom: 16 }}>📅</p>
+          <div className="bookings-empty ui-text-center">
+            <p className="bookings-empty-icon">📅</p>
             <h3>{isArabic ? 'لا توجد حجوزات بعد' : 'No bookings yet'}</h3>
-            <p style={{ color: '#6f6861', marginBottom: 24 }}>
+            <p className="ui-muted bookings-empty-copy">
               {isArabic ? 'ابدأ بحجز أول موعد لك!' : 'Start by booking your first appointment!'}
             </p>
-            <Link to="/booking" className="cta-button">
+            <Link to="/booking" className="shell-cta">
               {isArabic ? 'احجز الآن' : 'Book Now'}
             </Link>
           </div>
@@ -70,8 +63,7 @@ export function MyBookingsPage(): JSX.Element {
                 <div className="booking-card-header">
                   <span className="booking-id">{booking.id}</span>
                   <span
-                    className="booking-status"
-                    style={{ background: statusColors[booking.status] + '22', color: statusColors[booking.status] }}
+                    className={`booking-status booking-status--${booking.status}`}
                   >
                     {isArabic ? booking.statusAr : booking.status}
                   </span>
@@ -90,15 +82,15 @@ export function MyBookingsPage(): JSX.Element {
                 </div>
                 {booking.status === 'confirmed' && (
                   <div className="booking-card-actions">
-                    <Link to="/booking" className="cta-button" style={{ fontSize: 13, padding: '8px 20px' }}>
+                    <Link to="/booking" className="shell-cta shell-cta--compact">
                       {isArabic ? 'تعديل الحجز' : 'Modify'}
                     </Link>
                   </div>
                 )}
               </div>
             ))}
-            <div style={{ textAlign: 'center', marginTop: 32 }}>
-              <Link to="/booking" className="cta-button">
+            <div className="bookings-new ui-text-center">
+              <Link to="/booking" className="shell-cta">
                 {isArabic ? '+ حجز جديد' : '+ New Booking'}
               </Link>
             </div>

@@ -12,9 +12,7 @@ const offers = [
     code: 'FIRST30',
     valid: 'Valid all year',
     validAr: 'صالح طوال العام',
-    color: '#fef3c7',
-    border: '#fcd34d',
-    textColor: '#92400e',
+    tone: 'warm',
   },
   {
     id: 2,
@@ -26,9 +24,7 @@ const offers = [
     code: 'WEEKEND',
     valid: 'Every Friday & Saturday',
     validAr: 'كل جمعة وسبت',
-    color: '#f0fdf4',
-    border: '#86efac',
-    textColor: '#166534',
+    tone: 'success',
   },
   {
     id: 3,
@@ -40,9 +36,7 @@ const offers = [
     code: 'STUDENT20',
     valid: 'Ongoing',
     validAr: 'مستمر',
-    color: '#eff6ff',
-    border: '#93c5fd',
-    textColor: '#1e40af',
+    tone: 'info',
   },
 ];
 
@@ -53,7 +47,7 @@ export function OffersPage(): JSX.Element {
   return (
     <div className="page-offers">
       {/* Hero */}
-      <section className="page-hero" style={{ background: 'linear-gradient(135deg, #b66a3c 0%, #c97f4f 100%)' }}>
+      <section className="page-hero page-hero--accent">
         <div className="page-hero-content">
           <h1>{isArabic ? '🎉 عروضنا الحصرية' : '🎉 Exclusive Offers'}</h1>
           <p>{isArabic ? 'استفد من أفضل الصفقات والعروض' : 'Take advantage of our best deals'}</p>
@@ -65,24 +59,23 @@ export function OffersPage(): JSX.Element {
           {offers.map((offer) => (
             <div
               key={offer.id}
-              className="offer-card-page"
-              style={{ background: offer.color, border: `2px solid ${offer.border}` }}
+              className={`offer-card-page offer-card-page--${offer.tone}`}
             >
-              <div className="offer-discount-badge" style={{ color: offer.textColor }}>
+              <div className="offer-discount-badge">
                 {offer.discount} OFF
               </div>
-              <h3 style={{ color: offer.textColor }}>{isArabic ? offer.titleAr : offer.title}</h3>
-              <p style={{ color: offer.textColor, opacity: 0.85 }}>
+              <h3>{isArabic ? offer.titleAr : offer.title}</h3>
+              <p className="offer-description-page">
                 {isArabic ? offer.descriptionAr : offer.description}
               </p>
               <div className="offer-code-box">
                 <span>{isArabic ? 'الكود:' : 'Code:'}</span>
                 <strong>{offer.code}</strong>
               </div>
-              <p className="offer-validity" style={{ color: offer.textColor, opacity: 0.7 }}>
+              <p className="offer-validity">
                 {isArabic ? offer.validAr : offer.valid}
               </p>
-              <Link to="/booking" className="cta-button" style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}>
+              <Link to="/booking" className="shell-cta shell-cta--block shell-cta--center">
                 {isArabic ? 'احجز الآن' : 'Book Now'}
               </Link>
             </div>

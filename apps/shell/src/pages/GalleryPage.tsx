@@ -19,7 +19,7 @@ export function GalleryPage(): JSX.Element {
   return (
     <div className="page-gallery">
       {/* Hero */}
-      <section className="page-hero" style={{ background: 'linear-gradient(135deg, #1a1614 0%, #29231f 100%)' }}>
+      <section className="page-hero page-hero--dark">
         <div className="page-hero-content">
           <h1>{isArabic ? 'معرض الصور' : 'Gallery'}</h1>
           <p>{isArabic ? 'لقطات من أعمالنا وصالوننا' : 'Shots from our work and salon'}</p>

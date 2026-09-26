@@ -15,7 +15,7 @@ export function ContactPage(): JSX.Element {
   return (
     <div className="page-contact">
       {/* Hero */}
-      <section className="page-hero" style={{ background: 'linear-gradient(135deg, #171412 0%, #29231f 100%)' }}>
+      <section className="page-hero page-hero--dark">
         <div className="page-hero-content">
           <h1>{isArabic ? 'اتصل بنا' : 'Contact Us'}</h1>
           <p>{isArabic ? 'نحن هنا للإجابة على استفساراتكم' : 'We are here to answer your inquiries'}</p>
@@ -54,7 +54,7 @@ export function ContactPage(): JSX.Element {
           <div className="contact-form-wrap">
             {sent ? (
               <div className="contact-success">
-                <div style={{ fontSize: 48 }}>✅</div>
+                <div className="contact-success-icon">✅</div>
                 <h3>{isArabic ? 'تم الإرسال!' : 'Message Sent!'}</h3>
                 <p>{isArabic ? 'سنرد عليك في أقرب وقت ممكن.' : 'We will get back to you as soon as possible.'}</p>
               </div>
@@ -71,9 +71,9 @@ export function ContactPage(): JSX.Element {
                 </div>
                 <div className="form-group">
                   <label>{isArabic ? 'الرسالة' : 'Message'}</label>
-                  <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder={isArabic ? 'اكتب رسالتك هنا...' : 'Write your message here...'} style={{ width: '100%', padding: '12px', border: '1px solid #d9cfc5', borderRadius: '8px', fontFamily: 'inherit', fontSize: '14px', background: '#f8f5f0', resize: 'vertical' }} />
+                  <textarea className="ui-textarea" required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder={isArabic ? 'اكتب رسالتك هنا...' : 'Write your message here...'} />
                 </div>
-                <button type="submit" className="cta-button" style={{ width: '100%', padding: '14px' }}>
+                <button type="submit" className="shell-cta shell-cta--block shell-cta--large">
                   {isArabic ? 'إرسال' : 'Send Message'}
                 </button>
               </form>

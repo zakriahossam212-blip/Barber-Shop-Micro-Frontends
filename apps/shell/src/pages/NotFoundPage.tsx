@@ -15,7 +15,7 @@ export function NotFoundPage(): JSX.Element {
             ? 'عذرا، الصفحة التي تبحث عنها غير موجودة'
             : 'Sorry, the page you are looking for does not exist'}
         </p>
-        <Link to="/" className="cta-button">
+        <Link to="/" className="shell-cta">
           {isArabic ? 'العودة للرئيسية' : 'Back to Home'}
         </Link>
       </div>

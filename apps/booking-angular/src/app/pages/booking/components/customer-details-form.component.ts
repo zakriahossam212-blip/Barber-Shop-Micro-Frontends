@@ -21,7 +21,7 @@ import { BookingService } from '../../../services/booking.service';
             type="text"
             formControlName="firstName"
             placeholder="e.g., Ahmed"
-            class="form-input"
+            class="ui-field"
           />
           <span
             *ngIf="form.get('firstName')?.hasError('required') && form.get('firstName')?.touched"
@@ -38,7 +38,7 @@ import { BookingService } from '../../../services/booking.service';
             type="text"
             formControlName="lastName"
             placeholder="e.g., Hassan"
-            class="form-input"
+            class="ui-field"
           />
           <span
             *ngIf="form.get('lastName')?.hasError('required') && form.get('lastName')?.touched"
@@ -55,7 +55,7 @@ import { BookingService } from '../../../services/booking.service';
             type="tel"
             formControlName="phone"
             placeholder="e.g., +20 123 4567 890"
-            class="form-input"
+            class="ui-field"
           />
           <span
             *ngIf="form.get('phone')?.hasError('required') && form.get('phone')?.touched"
@@ -72,7 +72,7 @@ import { BookingService } from '../../../services/booking.service';
             type="email"
             formControlName="email"
             placeholder="e.g., ahmed@example.com"
-            class="form-input"
+            class="ui-field"
           />
           <span
             *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched"
@@ -94,7 +94,7 @@ import { BookingService } from '../../../services/booking.service';
             id="notes"
             formControlName="notes"
             placeholder="Any special requests?"
-            class="form-textarea"
+            class="ui-textarea"
             rows="4"
           ></textarea>
         </div>
@@ -103,14 +103,14 @@ import { BookingService } from '../../../services/booking.service';
           <button
             type="button"
             (click)="previousStep()"
-            class="btn-secondary"
+            class="ui-button ui-button--secondary"
           >
             Back
           </button>
           <button
             type="submit"
             [disabled]="!form.valid"
-            class="btn-primary"
+            class="ui-button ui-button--primary"
           >
             Confirm Booking
           </button>
@@ -144,36 +144,12 @@ import { BookingService } from '../../../services/booking.service';
       label {
         font-size: 14px;
         font-weight: 600;
-        color: #211e1b;
-      }
-
-      .form-input,
-      .form-textarea {
-         width: 100%;
-         max-width: 100%;
-         min-width: 0;
-        padding: 12px;
-        border: 1px solid #e8ddd4;
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: 'Tajawal', sans-serif;
-        transition: border-color 0.3s ease;
-
-        &:focus {
-          outline: none;
-          border-color: #d4645c;
-          box-shadow: 0 0 0 2px rgba(212, 100, 92, 0.1);
-        }
-
-        &:disabled {
-          background-color: #f8f5f0;
-          cursor: not-allowed;
-        }
+        color: var(--color-heading);
       }
 
       .error-message {
         font-size: 12px;
-        color: #d4645c;
+        color: var(--color-accent);
       }
 
       .actions {
@@ -181,40 +157,6 @@ import { BookingService } from '../../../services/booking.service';
         gap: 12px;
         justify-content: flex-end;
         margin-top: 24px;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary {
-        background-color: #d4645c;
-        color: white;
-
-        &:hover:not(:disabled) {
-          background-color: #c15048;
-        }
-
-        &:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-      }
-
-      .btn-secondary {
-        background-color: #e8ddd4;
-        color: #211e1b;
-
-        &:hover {
-          background-color: #dcd0c8;
-        }
       }
 
       @media (max-width: 640px) {

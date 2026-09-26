@@ -11,7 +11,7 @@ export function LegalPage({ type }: LegalPageProps): JSX.Element {
 
   return (
     <section className="section" dir={isArabic ? 'rtl' : 'ltr'}>
-      <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+      <div className="legal-content">
         <h1>
           {isPrivacy
             ? isArabic
@@ -21,7 +21,7 @@ export function LegalPage({ type }: LegalPageProps): JSX.Element {
               ? 'شروط الاستخدام'
               : 'Terms of Use'}
         </h1>
-        <p style={{ lineHeight: 1.8, color: '#6f6861' }}>
+        <p className="legal-copy">
           {isPrivacy
             ? isArabic
               ? 'نحترم خصوصيتك ونستخدم بياناتك فقط لتقديم خدمات الحجز وتحسين تجربتك.'

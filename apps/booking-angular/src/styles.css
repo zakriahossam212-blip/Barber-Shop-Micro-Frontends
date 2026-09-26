@@ -1,4 +1,5 @@
 @import '@design-tokens/core/css';
+@import '@design-tokens/core/components.css';
 
 /* ============================================
    Booking Container
@@ -106,7 +107,7 @@ app-root {
   display: block;
   font-weight: 500;
   margin-bottom: 8px;
-  color: var(--color-primary-dark);
+  color: var(--color-heading);
 }
 
 .form-group input,
@@ -166,7 +167,7 @@ app-root {
   cursor: pointer;
   transition: all 200ms;
   text-align: center;
-  background-color: var(--color-background);
+  background-color: var(--color-surface-raised);
 }
 
 .selection-card:hover {
@@ -175,7 +176,7 @@ app-root {
 
 .selection-card.selected {
   border-color: var(--color-accent);
-  background-color: #fef3c7;
+  background-color: var(--color-accent-soft);
 }
 
 .selection-card h4 {
@@ -194,40 +195,6 @@ app-root {
   gap: 16px;
   margin-top: 32px;
   justify-content: center;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 32px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 200ms;
-}
-
-.btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-accent-hover);
-}
-
-.btn-primary:disabled {
-  background-color: var(--color-border);
-  cursor: not-allowed;
-}
-
-.btn-secondary {
-  background-color: var(--color-border-subtle);
-  color: var(--color-primary-dark);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-border);
 }
 
 /* ============================================
@@ -377,7 +344,7 @@ button {
    ============================================ */
 html.dark-theme .booking-form,
 html.dark-theme .selection-card {
-  background-color: var(--color-surface-dark);
+  background-color: var(--color-surface-raised);
   border-color: var(--color-border);
 }
 html.dark-theme .form-group label,
@@ -392,50 +359,46 @@ html.dark-theme .form-group select {
   border-color: var(--color-border);
 }
 html.dark-theme .selection-card {
-  background-color: var(--color-background-dark);
+  background-color: var(--color-surface-raised);
 }
 html.dark-theme .selection-card:hover {
   border-color: var(--color-accent);
 }
 html.dark-theme .selection-card.selected {
-  background-color: #3f2a1d;
+  background-color: var(--color-accent-soft);
   border-color: var(--color-accent);
 }
-html.dark-theme .btn-secondary {
-  background-color: var(--color-border);
-  color: var(--color-sand);
-}
 html.dark-theme .booking-summary {
-  background-color: #1f2937;
-  border-color: #374151;
+  background-color: var(--color-surface-dark);
+  border-color: var(--color-border);
 }
 html.dark-theme .booking-detail {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  color: #e7d8c5;
+  border-bottom-color: var(--color-border);
+  color: var(--color-text);
 }
 html.dark-theme .booking-reference {
-  background-color: #111827;
-  color: #e7d8c5;
+  background-color: var(--color-primary-dark);
+  color: var(--color-text);
 }
 html.dark-theme .barber-card,
 html.dark-theme .time-slot {
-  background-color: #2a2522;
-  border-color: #332d29;
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-border);
 }
 html.dark-theme .barber-card.selected,
 html.dark-theme .time-slot.selected {
-  background-color: #3f2a1d;
-  border-color: #b66a3c;
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent);
 }
 html.dark-theme .barber-card h3,
 html.dark-theme .time-slot .time {
-  color: #e7d8c5;
+  color: var(--color-heading);
 }
 html.dark-theme .progress-step-number {
-  background-color: #332d29;
-  color: #a39c96;
+  background-color: var(--color-border-subtle);
+  color: var(--color-muted);
 }
 html.dark-theme .progress-step.active .progress-step-number {
-  background-color: #b66a3c;
-  color: white;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
 }
