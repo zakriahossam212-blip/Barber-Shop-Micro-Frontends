@@ -1,5 +1,8 @@
-/* Shared UI primitives used by every micro frontend.
-   Keep app-specific layout and page styling in each app stylesheet. */
+/*
+ * Shared UI primitives used by every micro frontend.
+ * Keep app-specific layout and page styling in each app stylesheet.
+ * The ui- prefix is intentional: every remote shares the shell document.
+ */
 
 .ui-button {
   align-items: center;
@@ -41,12 +44,22 @@
 
 .ui-button--primary:hover:not(:disabled) {
   background-color: var(--color-accent-hover);
-  box-shadow: 0 5px 14px rgb(182 106 60 / 24%);
+  box-shadow: var(--shadow-button);
 }
 
 .ui-button--secondary {
   background-color: var(--color-border-subtle);
   color: var(--color-heading);
+}
+
+.ui-button--dark {
+  background-color: var(--color-primary-dark);
+  color: var(--color-sand);
+}
+
+.ui-button--dark:hover:not(:disabled) {
+  background-color: var(--color-surface);
+  color: var(--color-sand);
 }
 
 .ui-button--secondary:hover:not(:disabled) {
@@ -60,6 +73,12 @@
 .ui-button--compact {
   min-height: 36px;
   padding: 8px 20px;
+}
+
+.ui-button--large {
+  font-size: 16px;
+  min-height: 52px;
+  padding: 16px 48px;
 }
 
 .ui-field,
@@ -81,7 +100,7 @@
 .ui-field:focus,
 .ui-textarea:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgb(182 106 60 / 10%);
+  box-shadow: var(--shadow-focus);
   outline: none;
 }
 
@@ -155,6 +174,61 @@
   width: 100%;
 }
 
+.ui-card {
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.ui-selection-card {
+  background-color: var(--color-surface-raised);
+  border: 2px solid var(--color-border-subtle);
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.ui-selection-card:hover,
+.ui-selection-card:focus-visible {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.ui-selection-card:active {
+  transform: scale(0.98);
+}
+
+.ui-selection-card.selected {
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+.ui-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ui-form-group label {
+  color: var(--color-heading);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ui-form-error {
+  color: var(--color-danger);
+  font-size: 12px;
+}
+
+.ui-actions {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
 @keyframes ui-spin {
   to {
     transform: rotate(360deg);
@@ -188,4 +262,9 @@ html.dark-theme .ui-textarea {
 html.dark-theme .ui-button--secondary {
   background-color: var(--color-border);
   color: var(--color-heading);
+}
+
+html.dark-theme .ui-card,
+html.dark-theme .ui-selection-card {
+  border-color: var(--color-border);
 }

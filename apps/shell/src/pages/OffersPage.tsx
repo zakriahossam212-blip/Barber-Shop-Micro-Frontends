@@ -75,7 +75,7 @@ export function OffersPage(): JSX.Element {
               <p className="offer-validity">
                 {isArabic ? offer.validAr : offer.valid}
               </p>
-              <Link to="/booking" className="shell-cta shell-cta--block shell-cta--center">
+                  <Link to="/booking" className="ui-button ui-button--primary ui-button--block">
                 {isArabic ? 'احجز الآن' : 'Book Now'}
               </Link>
             </div>

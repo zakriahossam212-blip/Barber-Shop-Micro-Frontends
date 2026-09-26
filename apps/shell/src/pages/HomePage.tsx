@@ -16,7 +16,7 @@ export function HomePage(): JSX.Element {
               ? 'تجربة حلاقة حديثة وعصرية'
               : 'A Modern Barber Experience'}
           </p>
-          <Link to="/booking" className="shell-cta">
+          <Link to="/booking" className="ui-button ui-button--primary">
             {isArabic ? 'احجز الآن' : 'Book Now'}
           </Link>
         </div>
@@ -65,7 +65,7 @@ export function HomePage(): JSX.Element {
             ? 'احصل على أفضل خدمات الحلاقة في المدينة'
             : 'Get the best barbering services in the city'}
         </p>
-        <Link to="/booking" className="shell-cta-large">
+        <Link to="/booking" className="ui-button ui-button--dark ui-button--large">
           {isArabic ? 'احجز الآن' : 'Book Now'}
         </Link>
       </section>

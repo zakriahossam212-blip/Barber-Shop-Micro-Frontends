@@ -11,15 +11,15 @@ import { BookingService } from '../../../services/booking.service';
 @Component({
   selector: 'app-barber-datetime-selection',
   template: `
-    <div class="barber-selection">
+    <div class="booking-barber-selection">
       <h2>Select Barber & Time</h2>
 
-      <div class="barbers-grid">
+        <div class="booking-barbers-grid">
         <button
           *ngFor="let barber of barbers$ | async"
           (click)="selectBarber(barber)"
           [class.selected]="selectedBarber?.id === barber.id"
-            class="barber-card"
+            class="ui-selection-card booking-barber-card"
           type="button"
         >
           <div class="barber-header">
@@ -34,14 +34,14 @@ import { BookingService } from '../../../services/booking.service';
         </button>
       </div>
 
-      <div *ngIf="selectedBarber" class="time-slots">
+      <div *ngIf="selectedBarber" class="booking-time-slots">
         <h3>Available Times</h3>
-        <div class="slots-grid">
+        <div class="booking-slots-grid">
           <button
             *ngFor="let slot of availableSlots$ | async"
             (click)="selectTimeSlot(slot)"
             [class.selected]="selectedSlot?.date === slot.date && selectedSlot?.startTime === slot.startTime"
-            class="time-slot"
+            class="ui-selection-card booking-time-slot"
             type="button"
           >
             <span class="date">{{ formatDate(slot.date) }}</span>
@@ -50,7 +50,7 @@ import { BookingService } from '../../../services/booking.service';
         </div>
       </div>
 
-      <div class="actions">
+      <div class="ui-actions booking-actions">
         <button (click)="previousStep()" class="ui-button ui-button--secondary" type="button">
           Back
         </button>
@@ -65,156 +65,6 @@ import { BookingService } from '../../../services/booking.service';
       </div>
     </div>
   `,
-  styles: [
-    `
-      .barber-selection {
-        padding: 24px;
-      }
-
-      h2,
-      h3 {
-        margin-bottom: 16px;
-      }
-
-      .barbers-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 12px;
-        margin-bottom: 32px;
-      }
-
-      .barber-card {
-        padding: 16px;
-        border: 2px solid var(--color-border-subtle);
-        border-radius: 8px;
-        background: var(--color-surface-raised);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-align: left;
-
-        &.selected {
-          border-color: var(--color-accent);
-          background-color: var(--color-accent-soft);
-        }
-
-        &:hover {
-          border-color: var(--color-accent);
-        }
-      }
-
-      .barber-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-      }
-
-      .barber-header h3 {
-        margin: 0;
-        font-size: 16px;
-      }
-
-      .barber-header > div {
-        min-width: 0;
-      }
-
-      .barber-avatar {
-        border-radius: 50%;
-        height: 50px;
-        object-fit: cover;
-        width: 50px;
-      }
-
-      .barber-info {
-        flex: 1;
-        margin-left: 12px;
-        text-align: left;
-      }
-
-      .rating {
-        font-size: 14px;
-        color: var(--color-accent);
-        font-weight: 600;
-        white-space: nowrap;
-      }
-
-      .arabic {
-        font-family: 'Cairo', sans-serif;
-        font-size: 14px;
-        color: var(--color-muted);
-        margin: 0;
-      }
-
-      .specialty {
-        font-size: 12px;
-        color: var(--color-muted);
-        margin-top: 12px;
-      }
-
-      .time-slots {
-        margin-bottom: 32px;
-      }
-
-      .slots-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 8px;
-      }
-
-      .time-slot {
-        padding: 12px;
-        border: 1px solid var(--color-border-subtle);
-        border-radius: 6px;
-        background: var(--color-surface-raised);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-
-        &.selected {
-          border-color: var(--color-accent);
-          background-color: var(--color-accent-soft);
-        }
-
-        &:hover:not(:disabled) {
-          border-color: var(--color-accent);
-        }
-      }
-
-      .date {
-        font-size: 12px;
-        color: var(--color-muted);
-      }
-
-      .time {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-heading);
-      }
-
-      .actions {
-        display: flex;
-        gap: 12px;
-        justify-content: flex-end;
-        margin-top: 32px;
-      }
-
-      @media (max-width: 768px) {
-        .barbers-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .slots-grid {
-          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        }
-
-        .actions {
-          flex-direction: column;
-        }
-      }
-    `,
-  ],
 })
 export class BarberDateTimeSelectionComponent implements OnInit {
   @Input() formState!: BookingFormState;
